@@ -1,0 +1,116 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+audit-log-service
+main
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+coverage.html
+coverage.out
+
+# Dependency directories (remove the comment below to include it)
+vendor/
+
+# Go workspace file
+go.work
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+tmp/
+
+# Configuration files with secrets
+configs/config.yaml
+.env
+.env.local
+.env.*.local
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Docker
+.dockerignore
+
+# Air (hot reload)
+tmp/
+build-errors.log
+
+# Testing
+testdata/
+
+# Build artifacts
+dist/
+build/
+
+# Certificates
+*.pem
+*.key
+*.crt
+ssl/
+
+# Local development
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Editor backup files
+*~
+*.bak
+*.tmp
+*.temp
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# nyc test coverage
+.nyc_output
+
+# Dependency lock files (keep go.sum, ignore others)
+package-lock.json
+yarn.lock
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Kubernetes
+*.kubeconfig
+
+# Helm
+charts/*.tgz
+
+# Local test results
+test-results/
+test-reports/

@@ -1,0 +1,87 @@
+# Audit Log Service Configuration Example
+# Copy this file to config.yaml and modify the values according to your environment
+
+# Server configuration
+server:
+  host: "0.0.0.0"
+  port: 9025
+  read_timeout: 10 # seconds
+  write_timeout: 10 # seconds
+  idle_timeout: 120 # seconds
+
+# Database configuration
+database:
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+  password: "your_postgres_password"
+  name: "audit_logs"
+  ssl_mode: "disable" # Use "require" for production
+  max_open_conns: 25
+  max_idle_conns: 25
+  conn_max_lifetime: 300 # seconds
+
+# Authentication configuration
+auth:
+  jwt_secret: "your-super-secret-jwt-key-change-this-in-production"
+  jwt_expiration: 3600 # seconds (1 hour)
+  api_keys:
+    - "your-api-key-1"
+    - "your-api-key-2"
+
+# Audit configuration
+audit:
+  enabled: true
+  default_status: "pending"
+  error_status: "failed"
+  status_values:
+    - "pending"
+    - "processing"
+    - "completed"
+    - "failed"
+    - "archived"
+
+# Notification configuration
+notification:
+  # Email notifications
+  email:
+    enabled: true
+    smtp_host: "smtp.gmail.com"
+    smtp_port: 587
+    username: "your-email@gmail.com"
+    password: "your-app-password" # Use app-specific password for Gmail
+    from: "noreply@yourcompany.com"
+    to:
+      - "admin@yourcompany.com"
+      - "security@yourcompany.com"
+
+  # Slack notifications
+  slack:
+    enabled: true
+    webhook_url: "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK"
+    channel: "#audit-alerts"
+    username: "Audit Bot"
+
+  # Webhook notifications
+  webhook:
+    enabled: true
+    urls:
+      - "https://your-webhook-endpoint.com/audit"
+      - "https://another-webhook.com/notifications"
+    timeout: 30 # seconds
+
+# Logging configuration
+logging:
+  level: "info" # debug, info, warn, error
+  format: "json" # json, text
+  output: "stdout" # stdout, stderr, file, both
+  max_size: 100 # MB
+  max_backups: 3
+  max_age: 28 # days
+
+# Redis configuration (optional, for caching and rate limiting)
+redis:
+  host: "localhost"
+  port: 6379
+  password: ""
+  db: 0
